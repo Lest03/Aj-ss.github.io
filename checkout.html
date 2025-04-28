@@ -267,23 +267,22 @@
 
 
     function confirmCOD() {
-      const name = document.getElementById('cod-name').value;
-      const address = document.getElementById('cod-address').value;
-      const contact = document.getElementById('cod-contact').value;
+  const name = document.getElementById('cod-name').value;
+  const address = document.getElementById('cod-address').value;
+  const contact = document.getElementById('cod-contact').value;
 
-      if (name && address && contact) {
-        alert(`Cash on Delivery Confirmed!\n\nName: ${name}\nAddress: ${address}\nContact: ${contact}`);
-        document.getElementById('check-purchase-btn').classList.add('active'); // Show button after payment method completion
-      } else {
-        alert("Please fill out all the delivery details.");
-      }
-    }
+  if (name && address && contact) {
+    
+    alert(`Cash on Delivery Order Confirmed!\n\nName: ${name}\nAddress: ${address}\nContact: ${contact}`);
 
-    function checkPurchase() {
-      window.location.href = "order-confirmation.html";  // Redirect to the order-confirmation page
-    }
-
-    window.onload = displayCheckoutItems;
+   
+    setTimeout(function() {
+      window.location.href = "order-confirmation.html";  
+    }, 0); 
+  } else {
+    alert("Please fill out all the delivery details.");
+  }
+}
   </script>
 
 </body>
