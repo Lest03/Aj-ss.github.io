@@ -1,0 +1,1315 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AJ'S Online Store</title>
+
+  <!-- 
+    - favicon
+  -->
+  <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
+
+  <!-- 
+    - custom css link
+  -->
+  <link rel="stylesheet" href="./assets/css/style.css">
+
+  <!-- 
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700&family=Roboto:wght@400;500;700&display=swap"
+    rel="stylesheet">
+
+  <!-- 
+    - preload banner
+  -->
+  <link rel="preload" href="./assets/images/hero-banner.png" as="image">
+  
+
+</head>
+
+<body id="top">
+
+  <!-- 
+    - #HEADER
+  -->
+
+  <header class="header" data-header>
+  <div class="container">
+    <div class="overlay" data-overlay></div>
+
+    <a href="#" class="logo">
+      <img src="./assets/images/logo21.jpg" width="160" height="50" alt="Footcap logo">
+    </a>
+
+    <button class="nav-open-btn" data-nav-open-btn aria-label="Open Menu">
+      <ion-icon name="menu-outline"></ion-icon>
+    </button>
+
+    <nav class="navbar" data-navbar>
+      <button class="nav-close-btn" data-nav-close-btn aria-label="Close Menu">
+        <ion-icon name="close-outline"></ion-icon>
+      </button>
+
+      <a href="#" class="logo">
+        <img src="./assets/images/logo21.jpg" width="190" height="50" alt="Footcap logo">
+      </a>
+
+      <ul class="navbar-list">
+        <li class="navbar-item">
+          <a href="#home" class="navbar-link">Home</a>
+        </li>
+
+        <li class="navbar-item">
+          <a href="#products" class="navbar-link">Products</a>
+        </li>   
+
+        <li class="navbar-item">
+          <a href="#contact" class="navbar-link">Contact</a>
+        </li>
+      </ul>
+
+      <ul class="nav-action-list">
+        <li>
+          <button class="nav-action-btn">
+            <ion-icon name="search-outline" aria-hidden="true"></ion-icon>
+            <span class="nav-action-text">Search</span>
+          </button>
+        </li>
+
+        <li>
+          <a href="#" class="nav-action-btn">
+            <ion-icon name="person-outline" aria-hidden="true"></ion-icon>
+            <span class="nav-action-text">Login / Register</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="wishlist.html" class="nav-action-btn"> 
+            <ion-icon name="heart-outline" aria-hidden="true"></ion-icon>
+            <span class="nav-action-text">Wishlist</span>
+            <data class="nav-action-badge" value="0" id="wishlist-count" aria-hidden="true">0</data>
+          </a>
+        </li>
+        
+
+       
+        <li>
+          <a href="cart.html" class="nav-action-btn">
+            <ion-icon name="bag-handle-outline" aria-hidden="true"></ion-icon>
+            <span class="nav-action-text">Cart</span>
+            <data class="nav-action-badge" value="0" id="cart-count" aria-hidden="true">0</data>
+          </a>
+        </li>
+        
+      </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+
+
+
+
+  <main>
+    <article>
+
+      <!-- 
+        - #HERO
+      -->
+<section id="home">
+      <section class="section hero" style="background-image: url('./assets/images/hero.jpg')">
+        <div class="container">
+
+          <h2 class="h1 hero-title">
+             AJ's Collections
+          </h2>
+
+          <p class="hero-text">
+           
+          </p>
+
+          <button class="btn btn-primary" onclick="document.getElementById('products').scrollIntoView({ behavior: 'smooth' });">
+            <span>Shop Now</span>
+          
+
+            <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
+          </button>
+
+        </div>
+      </section>
+
+
+
+
+
+     
+
+      <!-- 
+        - #PRODUCT
+      -->
+
+      <section id="products">
+        <div class="container">
+
+          <h2 class="h2 section-title">Bestsellers Products</h2>
+
+          <ul class="filter-list">
+
+            <li>
+              <button class="filter-btn  active">All</button>
+            </li>
+
+            <li>
+              <button class="filter-btn">T-shirt</button>
+            </li>
+
+            <li>
+              <button class="filter-btn">Pants</button>
+            </li>
+
+            <li>
+              <button class="filter-btn">Phone</button>
+            </li>
+
+            <li>
+              <button class="filter-btn">Watch</button>
+            </li>
+
+          </ul>
+
+          <ul class="product-list">
+
+            <li class="product-item">
+              <div class="product-card" tabindex="0">
+
+                <figure class="card-banner">
+                  <img src="./assets/images/a1.webp" width="312" height="350" loading="lazy"
+                    alt="Running Sneaker Shoes" class="image-contain">
+
+                  <div class="card-badge">New</div>
+
+                  <ul class="card-action-list">
+
+                    <li class="card-action-item">
+                      <button class="card-action-btn" 
+                      data-name="Nakime" 
+                      data-price="180.85" 
+                      data-image="./assets/images/a1.webp"
+                      data-quantity="1"
+                      onclick="addToCart(this);">
+                        <ion-icon name="cart-outline"></ion-icon>
+                      </button>
+
+                      <div class="card-action-tooltip" id="card-label-1">Add to Cart</div>
+                    </li>
+
+                    <li class="card-action-item">
+                      <button class="card-action-btn" aria-labelledby="card-label-2" onclick="addToWishlist(this)"
+                        data-name="Nakime" 
+                        data-price="180.85" 
+                        data-image="./assets/images/a1.webp"
+                        onclick="addToWishlist(this);">
+                        <ion-icon name="heart-outline"></ion-icon>
+                      </button>
+
+                      <div class="card-action-tooltip" id="card-label-2">Add to Whishlist</div>
+                    </li>
+
+                    <li class="card-action-item">
+                      <button class="card-action-btn" aria-labelledby="card-label-3">
+                        <ion-icon name="eye-outline"></ion-icon>
+                      </button>
+
+                      <div class="card-action-tooltip" id="card-label-3">Quick View</div>
+                    </li>
+
+                    <li class="card-action-item">
+                      <button class="card-action-btn" aria-labelledby="card-label-4">
+                        <ion-icon name="repeat-outline"></ion-icon>
+                      </button>
+
+                      <div class="card-action-tooltip" id="card-label-4">Compare</div>
+                    </li>
+
+                  </ul>
+                  
+                   <!-- Hover Info Box -->
+      <div class="hover-info">
+        <p><strong>Size:</strong> S, M, L, XL</p>
+        <p><strong>Material:</strong> Cotton</p>
+        <p><strong>Color:</strong> Black & White</p>
+        <p><strong>Brand:</strong> Uniqlo</p>
+      </div>
+    </figure>
+                </figure>
+
+                <div class="card-content">
+
+                  <div class="card-cat">
+                    
+                    <a href="#" class="card-cat-link">Women</a>
+                  </div>
+
+                  <h3 class="h3 card-title">
+                    <a href="#">Nakime</a>
+                  </h3>
+
+                  <data class="card-price" value="180.85">$180.85</data>
+
+                </div>
+
+              </div>
+            </li>
+
+            <li class="product-item">
+              <div class="product-card" tabindex="0">
+
+                <figure class="card-banner">
+                  <img src="./assets/images/a2.webp" width="312" height="350" loading="lazy"
+                    alt="Leather Mens Slipper" class="image-contain">
+
+                  <ul class="card-action-list">
+
+                    <li class="card-action-item">
+                      <button class="card-action-btn" aria-labelledby="card-label-1"
+                        data-name="Jujutsu no Kaisen" 
+                      data-price="190.85" 
+                      data-image="./assets/images/a2.webp"
+                      data-quantity="1"
+                      onclick="addToCart(this);">
+                        <ion-icon name="cart-outline"></ion-icon>
+                      </button>
+
+                      <div class="card-action-tooltip" id="card-label-1">Add to Cart</div>
+                    </li>
+
+                    <li class="card-action-item">
+                      <button class="card-action-btn" aria-labelledby="card-label-2" onclick="addToWishlist(this)"
+                        data-name="Jujutsu no Kaisen" 
+                        data-price="190.85" 
+                        data-image="./assets/images/a2.webp"
+                        onclick="addToWishlist(this);">
+                        <ion-icon name="heart-outline"></ion-icon>
+                      </button>
+
+                      <div class="card-action-tooltip" id="card-label-2">Add to Whishlist</div>
+                    </li>
+
+                    <li class="card-action-item">
+                      <button class="card-action-btn" aria-labelledby="card-label-3">
+                        <ion-icon name="eye-outline"></ion-icon>
+                      </button>
+
+                      <div class="card-action-tooltip" id="card-label-3">Quick View</div>
+                    </li>
+
+                    <li class="card-action-item">
+                      <button class="card-action-btn" aria-labelledby="card-label-4">
+                        <ion-icon name="repeat-outline"></ion-icon>
+                      </button>
+
+                      <div class="card-action-tooltip" id="card-label-4">Compare</div>
+                    </li>
+
+                  </ul>
+
+                   <!-- Hover Info Box -->
+      <div class="hover-info">
+        <p><strong>Size:</strong> S, M, L, XL</p>
+        <p><strong>Material:</strong> Cotton</p>
+        <p><strong>Color:</strong> Gray, Black, White</p>
+        <p><strong>Brand:</strong> Uniqlo</p>
+      </div>
+    </figure>
+                </figure>
+
+                <div class="card-content">
+
+                  <div class="card-cat">
+                    <a href="#" class="card-cat-link">Men</a> /
+                    <a href="#" class="card-cat-link">Women</a>
+                  </div>
+
+                  <h3 class="h3 card-title">
+                    <a href="#">Jujutsu no Kaisen</a>
+                  </h3>
+
+                  <data class="card-price" value="190.85">$190.85</data>
+
+                </div>
+
+              </div>
+            </li>
+
+            <li class="product-item">
+              <div class="product-card" tabindex="0">
+
+                <figure class="card-banner">
+                  <img src="./assets/images/a3.jpg" width="312" height="350" loading="lazy"
+                    alt="Simple Fabric Shoe" class="image-contain">
+
+                  <div class="card-badge">New</div>
+
+                  <ul class="card-action-list">
+
+                    <li class="card-action-item">
+                      <button class="card-action-btn" aria-labelledby="card-label-1"
+                        data-name="Uniqlo Women Pants" 
+                      data-price="160.85" 
+                      data-image="./assets/images/a3.jpg"
+                      data-quantity="1"
+                      onclick="addToCart(this);">
+                        <ion-icon name="cart-outline"></ion-icon>
+                      </button>
+
+                      <div class="card-action-tooltip" id="card-label-1">Add to Cart</div>
+                    </li>
+
+                    <li class="card-action-item">
+                      <button class="card-action-btn" aria-labelledby="card-label-2" onclick="addToWishlist(this)"
+                      data-name="Uniqlo Men Pants" 
+                      data-price="160.85" 
+                      data-image="./assets/images/a3.jpg"
+                      onclick="addToWishlist(this);">
+                        <ion-icon name="heart-outline"></ion-icon>
+                      </button>
+
+                      <div class="card-action-tooltip" id="card-label-2">Add to Whishlist</div>
+                    </li>
+
+                    <li class="card-action-item">
+                      <button class="card-action-btn" aria-labelledby="card-label-3">
+                        <ion-icon name="eye-outline"></ion-icon>
+                      </button>
+
+                      <div class="card-action-tooltip" id="card-label-3">Quick View</div>
+                    </li>
+
+                    <li class="card-action-item">
+                      <button class="card-action-btn" aria-labelledby="card-label-4">
+                        <ion-icon name="repeat-outline"></ion-icon>
+                      </button>
+
+                      <div class="card-action-tooltip" id="card-label-4">Compare</div>
+                    </li>
+
+                  </ul>
+
+                   <!-- Hover Info Box -->
+      <div class="hover-info">
+        <p><strong>Size:</strong> S, M, L, XL</p>
+        <p><strong>Material:</strong> Polyester</p>
+        <p><strong>Color:</strong> Gray</p>
+        <p><strong>Brand:</strong> Uniqlo</p>
+      </div>
+    </figure>
+                </figure>
+
+                <div class="card-content">
+
+                  <div class="card-cat">
+                    <a href="#" class="card-cat-link">Men</a>
+                  </div>
+
+                  <h3 class="h3 card-title">
+                    <a href="#">Uniqlo Men Pants</a>
+                  </h3>
+
+                  <data class="card-price" value="160.85">$160.85</data>
+
+                </div>
+
+              </div>
+            </li>
+
+            <li class="product-item">
+              <div class="product-card" tabindex="0">
+
+                <figure class="card-banner">
+                  <img src="./assets/images/a4.jpg" width="312" height="350" loading="lazy"
+                    alt="Air Jordan 7 Retro " class="image-contain">
+
+                  <div class="card-badge"> -25%</div>
+
+                  <ul class="card-action-list">
+
+                    <li class="card-action-item">
+                      <button class="card-action-btn" aria-labelledby="card-label-1"
+                        data-name="Uniqlo Women Baggy Pants" 
+                        data-price="170.85" 
+                        data-image="./assets/images/a4.jpg"
+                        data-quantity="1"
+                        onclick="addToCart(this);">
+                        <ion-icon name="cart-outline"></ion-icon>
+                      </button>
+
+                      <div class="card-action-tooltip" id="card-label-1">Add to Cart</div>
+                    </li>
+
+                    <li class="card-action-item">
+                      <button class="card-action-btn" aria-labelledby="card-label-2" onclick="addToWishlist(this)"
+                      data-name="Uniqlo Women Baggy Pants" 
+                      data-price="160.85" 
+                      data-image="./assets/images/a4.jpg"
+                      onclick="addToWishlist(this);">
+                        <ion-icon name="heart-outline"></ion-icon>
+                      </button>
+
+                      <div class="card-action-tooltip" id="card-label-2">Add to Whishlist</div>
+                    </li>
+
+                    <li class="card-action-item">
+                      <button class="card-action-btn" aria-labelledby="card-label-3">
+                        <ion-icon name="eye-outline"></ion-icon>
+                      </button>
+
+                      <div class="card-action-tooltip" id="card-label-3">Quick View</div>
+                    </li>
+
+                    <li class="card-action-item">
+                      <button class="card-action-btn" aria-labelledby="card-label-4">
+                        <ion-icon name="repeat-outline"></ion-icon>
+                      </button>
+
+                      <div class="card-action-tooltip" id="card-label-4">Compare</div>
+                    </li>
+
+                  </ul>
+
+                    <!-- Hover Info Box -->
+      <div class="hover-info">
+        <p><strong>Size:</strong> S, M, L, XL</p>
+        <p><strong>Material:</strong> Polyester</p>
+        <p><strong>Color:</strong> Denim</p>
+        <p><strong>Brand:</strong> Uniqlo</p>
+      </div>
+                </figure>
+
+                <div class="card-content">
+
+                  <div class="card-cat">
+                    <a href="#" class="card-cat-link">Women</a> 
+               
+                  </div>
+
+                  <h3 class="h3 card-title">
+                    <a href="#">Uniqlo Women Baggy Pants</a>
+                  </h3>
+
+                  <data class="card-price" value="170.85">$170.85 <del>$200.21</del></data>
+
+                </div>
+
+              </div>
+            </li>
+
+            <li class="product-item">
+              <div class="product-card" tabindex="0">
+
+                <figure class="card-banner">
+                  <img src="./assets/images/a5.jpg" width="312" height="350" loading="lazy"
+                    alt="Nike Air Max 270 SE" class="image-contain">
+
+                  <div class="card-badge">New</div>
+
+                  <ul class="card-action-list">
+
+                    <li class="card-action-item">
+                      <button class="card-action-btn" aria-labelledby="card-label-1"
+                        data-name="Samsung Galaxy Ultra s24" 
+                        data-price="280.85" 
+                        data-image="./assets/images/a5.jpg"
+                        data-quantity="1"
+                        onclick="addToCart(this);">
+                        <ion-icon name="cart-outline"></ion-icon>
+                      </button>
+
+                      <div class="card-action-tooltip" id="card-label-1">Add to Cart</div>
+                    </li>
+
+                    <li class="card-action-item">
+                      <button class="card-action-btn" aria-labelledby="card-label-2" onclick="addToWishlist(this)"
+                      data-name="Samsung Galaxy Ultra s24" 
+                      data-price="280.85" 
+                      data-image="./assets/images/a5.jpg"
+                      onclick="addToWishlist(this);">
+                        <ion-icon name="heart-outline"></ion-icon>
+                      </button>
+
+                      <div class="card-action-tooltip" id="card-label-2">Add to Whishlist</div>
+                    </li>
+
+                    <li class="card-action-item">
+                      <button class="card-action-btn" aria-labelledby="card-label-3">
+                        <ion-icon name="eye-outline"></ion-icon>
+                      </button>
+
+                      <div class="card-action-tooltip" id="card-label-3">Quick View</div>
+                    </li>
+
+                    <li class="card-action-item">
+                      <button class="card-action-btn" aria-labelledby="card-label-4">
+                        <ion-icon name="repeat-outline"></ion-icon>
+                      </button>
+
+                      <div class="card-action-tooltip" id="card-label-4">Compare</div>
+                    </li>
+
+                  </ul>
+
+                  
+                   <!-- Hover Info Box -->
+      <div class="hover-info">
+        <p><strong>Brand:</strong> Samsung</p>
+        <p><strong>Specs:</strong> 12GB ram & 512GB Internal Storage</p>
+        <p><strong>Color:</strong> Titanium</p>
+       
+      </div>
+                </figure>
+
+                <div class="card-content">
+
+                  <div class="card-cat">
+                    <a href="#" class="card-cat-link">Men</a> /
+                    <a href="#" class="card-cat-link">Women</a>
+                  </div>
+
+                  <h3 class="h3 card-title">
+                    <a href="#">Samsung Galaxy Ultra s24</a>
+                  </h3>
+
+                  <data class="card-price" value="280.85">$280.85</data>
+
+                </div>
+
+              </div>
+            </li>
+
+            <li class="product-item">
+              <div class="product-card" tabindex="0">
+
+                <figure class="card-banner">
+                  <img src="./assets/images/a6.jpg" width="312" height="350" loading="lazy"
+                    alt="Adidas Sneakers Shoes" class="image-contain">
+
+                  <ul class="card-action-list">
+
+                    <li class="card-action-item">
+                      <button class="card-action-btn" aria-labelledby="card-label-1"
+                        data-name="iPHONE 15 Pro Max" 
+                        data-price="300" 
+                        data-image="./assets/images/a6.jpg"
+                        data-quantity="1"
+                        onclick="addToCart(this);">
+                        <ion-icon name="cart-outline"></ion-icon>
+                      </button>
+
+                      <div class="card-action-tooltip" id="card-label-1">Add to Cart</div>
+                    </li>
+
+                    <li class="card-action-item">
+                      <button class="card-action-btn" aria-labelledby="card-label-2" onclick="addToWishlist(this)"
+                      data-name="iPhone 15 Pro Max" 
+                      data-price="300" 
+                      data-image="./assets/images/a6.jpg"
+                      onclick="addToWishlist(this);">
+                        <ion-icon name="heart-outline"></ion-icon>
+                      </button>
+
+                      <div class="card-action-tooltip" id="card-label-2">Add to Whishlist</div>
+                    </li>
+
+                    <li class="card-action-item">
+                      <button class="card-action-btn" aria-labelledby="card-label-3">
+                        <ion-icon name="eye-outline"></ion-icon>
+                      </button>
+
+                      <div class="card-action-tooltip" id="card-label-3">Quick View</div>
+                    </li>
+
+                    <li class="card-action-item">
+                      <button class="card-action-btn" aria-labelledby="card-label-4">
+                        <ion-icon name="repeat-outline"></ion-icon>
+                      </button>
+
+                      <div class="card-action-tooltip" id="card-label-4">Compare</div>
+                    </li>
+
+                  </ul>
+
+                   <!-- Hover Info Box -->
+      <div class="hover-info">
+        <p><strong>Brand:</strong> Apple</p>
+        <p><strong>Specs:</strong> 8GB ram & 256GB Internal storage</p>
+        <p><strong>Color:</strong> Space Grey</p>
+        
+      </div>
+                </figure>
+
+                <div class="card-content">
+
+                  <div class="card-cat">
+                    <a href="#" class="card-cat-link">Men</a> /
+                    <a href="#" class="card-cat-link">Women</a>
+                  </div>
+
+                  <h3 class="h3 card-title">
+                    <a href="#">iPhone 15 Pro Max</a>
+                  </h3>
+
+                  <data class="card-price" value="300">$300</data>
+
+                </div>
+
+              </div>
+            </li>
+
+            <li class="product-item">
+              <div class="product-card" tabindex="0">
+
+                <figure class="card-banner">
+                  <img src="./assets/images/a7.jpg" width="312" height="350" loading="lazy"
+                    alt="Nike Basketball shoes" class="image-contain">
+
+                  <ul class="card-action-list">
+
+                    <li class="card-action-item">
+                      <button class="card-action-btn" aria-labelledby="card-label-1"
+                        data-name="Rolex Cosmograph Daytona Gold" 
+                        data-price="1500" 
+                        data-image="./assets/images/a7.jpg"
+                        data-quantity="1"
+                        onclick="addToCart(this);">
+                        <ion-icon name="cart-outline"></ion-icon>
+                      </button>
+
+                      <div class="card-action-tooltip" id="card-label-1">Add to Cart</div>
+                    </li>
+
+                    <li class="card-action-item">
+                    <button class="card-action-btn" aria-labelledby="card-label-2" onclick="addToWishlist(this)"
+                      data-name="Rolex Cosmograph Daytona Gold" 
+                      data-price="1500" 
+                      data-image="./assets/images/a7.jpg"
+                      onclick="addToWishlist(this);">
+                        <ion-icon name="heart-outline"></ion-icon>
+                      </button>
+
+                      <div class="card-action-tooltip" id="card-label-2">Add to Whishlist</div>
+                    </li>
+
+                    <li class="card-action-item">
+                      <button class="card-action-btn" aria-labelledby="card-label-3">
+                        <ion-icon name="eye-outline"></ion-icon>
+                      </button>
+
+                      <div class="card-action-tooltip" id="card-label-3">Quick View</div>
+                    </li>
+
+                    <li class="card-action-item">
+                      <button class="card-action-btn" aria-labelledby="card-label-4">
+                        <ion-icon name="repeat-outline"></ion-icon>
+                      </button>
+
+                      <div class="card-action-tooltip" id="card-label-4">Compare</div>
+                    </li>
+
+                  </ul>
+
+                  
+                   <!-- Hover Info Box -->
+      <div class="hover-info">
+        <p><strong>Brand:</strong> Rolex Men & Women</p>
+        <p><strong>Reference:</strong> Oyster, 40 mm, Everose gold
+          m126505-0001</p>
+        <p><strong>Color:</strong> Rose Gold</p>
+                </figure>
+
+                <div class="card-content">
+
+                  <div class="card-cat">
+                    <a href="#" class="card-cat-link">Men</a> /
+                    <a href="#" class="card-cat-link">Sports</a>
+                  </div>
+
+                  <h3 class="h3 card-title">
+                    <a href="#">Rolex Cosmograph Daytona Gold</a>
+                  </h3>
+
+                  <data class="card-price" value="1500">$1,500</data>
+
+                </div>
+
+              </div>
+            </li>
+
+            <li class="product-item">
+              <div class="product-card" tabindex="0">
+
+                <figure class="card-banner">
+                  <img src="./assets/images/a8.jpg" width="312" height="350" loading="lazy"
+                    alt="Simple Fabric Shoe" class="image-contain">
+
+                  <ul class="card-action-list">
+
+                    <li class="card-action-item">
+                      <button class="card-action-btn" aria-labelledby="card-label-1"
+                        data-name="Rolex Cosmograph Daytona 40mm" 
+                        data-price="1300" 
+                        data-image="./assets/images/a8.jpg"
+                        data-quantity="1"
+                        onclick="addToCart(this);">
+                        <ion-icon name="cart-outline"></ion-icon>
+                      </button>
+
+                      <div class="card-action-tooltip" id="card-label-1">Add to Cart</div>
+                    </li>
+
+                    <li class="card-action-item">
+                    <button class="card-action-btn" aria-labelledby="card-label-2" onclick="addToWishlist(this)"
+                        data-name="Rolex Cosmograph Daytona 40mm" 
+                        data-price="1300.85" 
+                        data-image="./assets/images/a7.jpg"
+                        onclick="addToWishlist(this);">
+                        <ion-icon name="heart-outline"></ion-icon>
+                      </button>
+
+                      <div class="card-action-tooltip" id="card-label-2">Add to Whishlist</div>
+                    </li>
+
+                    <li class="card-action-item">
+                      <button class="card-action-btn" aria-labelledby="card-label-3">
+                        <ion-icon name="eye-outline"></ion-icon>
+                      </button>
+
+                      <div class="card-action-tooltip" id="card-label-3">Quick View</div>
+                    </li>
+
+                    <li class="card-action-item">
+                      <button class="card-action-btn" aria-labelledby="card-label-4">
+                        <ion-icon name="repeat-outline"></ion-icon>
+                      </button>
+
+                      <div class="card-action-tooltip" id="card-label-4">Compare</div>
+                    </li>
+
+                  </ul>
+
+                   <!-- Hover Info Box -->
+      <div class="hover-info">
+        <p><strong>Brand:</strong> Rolex Men & Women</p>
+        <p><strong>Reference:</strong> 126500LN Oystersteel Black Dial with Oyster Bracelet.</p>
+        <p><strong>Color:</strong> Gold Silver</p>
+                </figure>
+
+                <div class="card-content">
+
+                  <div class="card-cat">
+                    <a href="#" class="card-cat-link">Men</a> /
+                    <a href="#" class="card-cat-link">Women</a>
+                  </div>
+
+                  <h3 class="h3 card-title">
+                    <a href="#">Rolex Cosmograph Daytona 40mm</a>
+                  </h3>
+
+                  <data class="card-price" value="1300">$1,300</data>
+
+                </div>
+
+              </div>
+            </li>
+
+          </ul>
+
+        </div>
+      </section>
+
+
+
+
+
+      <!-- 
+        - #CTA
+      -->
+
+      <section class="section cta">
+        <div class="container">
+
+          <ul class="cta-list">
+
+            <li>
+              <div class="cta-card" style="background-image: url('./assets/images/cta-1.jpg')">
+                <p class="card-subtitle">AJ's Collection</p>
+
+                <h3 class="h2 card-title">The Summer Sale Off 50%</h3>
+
+                <a href="#" class="btn btn-link">
+                  <span>Shop Now</span>
+
+                  <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
+                </a>
+              </div>
+            </li>
+
+            <li>
+              <div class="cta-card" style="background-image: url('./assets/images/cta-2.jpg')">
+                <p class="card-subtitle">AJ's Collection</p>
+
+                <h3 class="h2 card-title">Makes Yourself Keep Sporty</h3>
+
+                <a href="#" class="btn btn-link">
+                  <span>Shop Now</span>
+
+                  <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
+                </a>
+              </div>
+            </li>
+
+          </ul>
+
+        </div>
+      </section>
+
+
+
+
+
+     
+
+
+
+      <!-- 
+        - #SERVICE
+      -->
+
+      <section class="section service">
+        <div class="container">
+
+          <ul class="service-list">
+
+
+            <li class="service-item">
+              <div class="service-card">
+
+                <div class="card-icon">
+                  <img src="./assets/images/service-2.png" width="43" height="35" loading="lazy" alt="Service icon">
+                </div>
+
+                <div>
+                  <h3 class="h4 card-title">Gcash</h3>
+
+                  <p class="card-text">
+                    100% secure payment
+                  </p>
+                </div>
+
+              </div>
+            </li>
+
+            <li class="service-item">
+              <div class="service-card">
+
+                <div class="card-icon">
+                  <img src="./assets/images/service-1.png" width="53" height="28" loading="lazy" alt="Service icon">
+                </div>
+
+                <div>
+                  <h3 class="h4 card-title">Cash on Delivery</h3>
+
+                  <p class="card-text">
+                    All orders over <span>$150</span>
+                  </p>
+                </div>
+
+              </div>
+            </li>
+
+            <li class="service-item">
+              <div class="service-card">
+
+                <div class="card-icon">
+                  <img src="./assets/images/service-4.png" width="40" height="40" loading="lazy" alt="Service icon">
+                </div>
+
+                <div>
+                  <h3 class="h4 card-title">24/7 Support</h3>
+
+                  <p class="card-text">
+                    Get Quick Support
+                  </p>
+                </div>
+
+              </div>
+            </li>
+
+          </ul>
+
+        </div>
+      </section>
+
+
+
+
+
+      <!-- 
+        - #INSTA POST
+      -->
+
+      <section class="section insta-post">
+
+        <ul class="insta-post-list has-scrollbar">
+
+          <li class="insta-post-item">
+            <img src="./assets/images/a8.jpg" width="100" height="100" loading="lazy" alt="Instagram post"
+              class="insta-post-banner image-contain">
+
+            <a href="#" class="insta-post-link">
+              <ion-icon name="logo-instagram"></ion-icon>
+            </a>
+          </li>
+
+          <li class="insta-post-item">
+            <img src="./assets/images/a2.webp" width="100" height="100" loading="lazy" alt="Instagram post"
+              class="insta-post-banner image-contain">
+
+            <a href="#" class="insta-post-link">
+              <ion-icon name="logo-instagram"></ion-icon>
+            </a>
+          </li>
+
+          <li class="insta-post-item">
+            <img src="./assets/images/a4.jpg" width="100" height="100" loading="lazy" alt="Instagram post"
+              class="insta-post-banner image-contain">
+
+            <a href="#" class="insta-post-link">
+              <ion-icon name="logo-instagram"></ion-icon>
+            </a>
+          </li>
+
+          <li class="insta-post-item">
+            <img src="./assets/images/a1.webp" width="100" height="100" loading="lazy" alt="Instagram post"
+              class="insta-post-banner image-contain">
+
+            <a href="#" class="insta-post-link">
+              <ion-icon name="logo-instagram"></ion-icon>
+            </a>
+          </li>
+
+          <li class="insta-post-item">
+            <img src="./assets/images/a6.jpg" width="100" height="100" loading="lazy" alt="Instagram post"
+              class="insta-post-banner image-contain">
+
+            <a href="#" class="insta-post-link">
+              <ion-icon name="logo-instagram"></ion-icon>
+            </a>
+          </li>
+
+          <li class="insta-post-item">
+            <img src="./assets/images/a7.jpg" width="100" height="100" loading="lazy" alt="Instagram post"
+              class="insta-post-banner image-contain">
+
+            <a href="#" class="insta-post-link">
+              <ion-icon name="logo-instagram"></ion-icon>
+            </a>
+          </li>
+
+          <li class="insta-post-item">
+            <img src="./assets/images/a3.jpg" width="100" height="100" loading="lazy" alt="Instagram post"
+              class="insta-post-banner image-contain">
+
+            <a href="#" class="insta-post-link">
+              <ion-icon name="logo-instagram"></ion-icon>
+            </a>
+          </li>
+
+          <li class="insta-post-item">
+            <img src="./assets/images/a5.jpg" width="100" height="100" loading="lazy" alt="Instagram post"
+              class="insta-post-banner image-contain">
+
+            <a href="#" class="insta-post-link">
+              <ion-icon name="logo-instagram"></ion-icon>
+            </a>
+          </li>
+
+        </ul>
+
+      </section>
+
+    </article>
+  </main>
+  
+
+
+
+
+
+  <!-- 
+    - #FOOTER
+  -->
+
+  <footer class="footer">
+
+    <section id="contact">
+      <div class="container">
+
+        <div class="footer-brand">
+
+          <a href="#" class="logo">
+            <img src="./assets/images/logo21.jpg" width="160" height="50" alt="Footcap logo">
+          </a>
+
+          <ul class="social-list">
+
+            <li>
+              <a href="https://www.facebook.com/apriljean.villas" class="social-link">
+                <ion-icon name="logo-facebook"></ion-icon>
+              </a>
+            </li>
+
+            <li>
+              <a href="https://www.linkedin.com/in/apriljeanvillas04" class="social-link">
+                <ion-icon name="logo-linkedin"></ion-icon>
+              </a>
+            </li>
+
+
+            <li>
+              <a href="#" class="social-link">
+                <ion-icon name="logo-instagram"></ion-icon>
+              </a>
+            </li>
+
+            <li>
+              <a href="#" class="social-link">
+                <ion-icon name="logo-tiktok"></ion-icon>
+              </a>
+            </li>
+
+
+          </ul>
+
+        </div>
+
+        <div class="footer-link-box">
+
+          <ul class="footer-list">
+
+            <li>
+              <p class="footer-list-title">Contact Us</p>
+            </li>
+
+            <li>
+              <address class="footer-link">
+                <ion-icon name="location"></ion-icon>
+
+                <span class="footer-link-text">
+                  Maramag, Bukidnon, Philippines 
+                </span>
+              </address>
+            </li>
+
+            <li>
+              <a href="tel:+63 976 023 7827" class="footer-link">
+                <ion-icon name="call"></ion-icon>
+
+                <span class="footer-link-text">+63 976 023 7827</span>
+              </a>
+            </li>
+
+            <li>
+              <a href="mailto:apriljeanvillas04@gmail.com " class="footer-link">
+                <ion-icon name="mail"></ion-icon>
+
+                <span class="footer-link-text">apriljeanvillas04@gmail.com </span>
+              </a>
+            </li>
+
+          </ul>
+
+          <ul class="footer-list">
+
+            <li>
+              <p class="footer-list-title">My Account</p>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">
+                <ion-icon name="chevron-forward-outline"></ion-icon>
+
+                <span class="footer-link-text">My Account</span>
+              </a>
+            </li>
+
+            <li>
+              <a href="cart.html" class="footer-link">
+                <ion-icon name="chevron-forward-outline"></ion-icon>
+                <span class="footer-link-text">View Cart</span>
+              </a>
+              
+            </li>
+
+            <li>
+              <a href="wishlist.html" class="footer-link">
+                <ion-icon name="chevron-forward-outline"></ion-icon>
+                <span class="footer-link-text">View Wishlist</span>
+              </a>
+            </li>
+
+
+          </ul>
+
+          <div class="footer-list">
+
+            <p class="footer-list-title">Opening Time</p>
+
+            <table class="footer-table">
+              <tbody>
+
+                <tr class="table-row">
+                  <th class="table-head" scope="row">Mon - Tue:</th>
+
+                  <td class="table-data">8AM - 10PM</td>
+                </tr>
+
+                <tr class="table-row">
+                  <th class="table-head" scope="row">Wed:</th>
+
+                  <td class="table-data">8AM - 7PM</td>
+                </tr>
+
+                <tr class="table-row">
+                  <th class="table-head" scope="row">Fri:</th>
+
+                  <td class="table-data">7AM - 12PM</td>
+                </tr>
+
+                <tr class="table-row">
+                  <th class="table-head" scope="row">Sat:</th>
+
+                  <td class="table-data">9AM - 8PM</td>
+                </tr>
+
+                <tr class="table-row">
+                  <th class="table-head" scope="row">Sun:</th>
+
+                  <td class="table-data">Closed</td>
+                </tr>
+
+              </tbody>
+            </table>
+
+          </div>
+
+          <div class="footer-list">
+            <form action="" class="newsletter-form">
+              <input type="email" name="email" required placeholder="Email Address" class="newsletter-input">
+
+              <button type="submit" class="btn btn-primary">Subscribe</button>
+            </form>
+
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+
+        <p class="copyright">
+          &copy; 2025 <a href="#" class="copyright-link">AJ's Online Shop</a>. All Rights Reserved
+        </p>
+
+      </div>
+    </div>
+
+  </footer>
+
+
+
+
+
+  <!-- 
+    - #GO TO TOP
+  -->
+
+  <a href="#top" class="go-top-btn" data-go-top>
+    <ion-icon name="arrow-up-outline"></ion-icon>
+  </a>
+
+
+
+
+
+  <!-- 
+    - custom js link
+  -->
+  <script src="./assets/js/script.js"></script>
+
+  <!-- 
+    - ionicon link
+  -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  <script>
+    document.querySelectorAll(".add-to-cart").forEach(button => {
+      button.addEventListener("click", () => {
+        const title = button.getAttribute("data-title");
+        const price = button.getAttribute("data-price");
+        const image = button.getAttribute("data-image");
+
+        const newItem = { title, price, image };
+        const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+        cart.push(newItem);
+        localStorage.setItem("cart", JSON.stringify(cart));
+
+        // Redirect to cart page
+        window.location.href = "cart.html";
+      });
+    });
+
+    function addToCart(button) {
+ 
+  const productName = button.getAttribute('data-name');
+  const productPrice = button.getAttribute('data-price');
+  const productImage = button.getAttribute('data-image');
+  const productQuantity = parseInt(button.getAttribute('data-quantity')); 
+
+  
+  const product = {
+    name: productName,
+    price: parseFloat(productPrice),
+    image: productImage,
+    quantity: productQuantity
+  };
+
+  
+  let cart = JSON.parse(localStorage.getItem('cart')) || [];
+  const existingProductIndex = cart.findIndex(item => item.name === product.name);
+  if (existingProductIndex !== -1) {  
+    cart[existingProductIndex].quantity += productQuantity;
+  } else {
+    cart.push(product);
+  }
+  localStorage.setItem('cart', JSON.stringify(cart));
+  alert(`${productName} has been added to your cart!`);
+}
+
+
+  </script>
+
+</body>
+
+</html>

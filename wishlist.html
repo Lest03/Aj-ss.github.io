@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Wishlist</title>
+  <style>
+    /* General Styles */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f7f7f7;
+      margin: 0;
+      padding: 0;
+      color: #333;
+      overflow-x: hidden;
+    }
+
+    h1 {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 2.5em;
+      color: #2c3e50;
+    }
+
+    /* Container for the wishlist items */
+    #wishlist-items {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
+      padding: 20px;
+      opacity: 0;
+      animation: fadeIn 0.5s forwards;
+    }
+
+    .wishlist-item {
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      text-align: center;
+      transition: transform 0.2s ease-in-out;
+      opacity: 0;
+      animation: slideIn 0.5s forwards;
+    }
+
+    .wishlist-item:hover {
+      transform: scale(1.05);
+    }
+
+    .wishlist-item img {
+      max-width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .wishlist-item h3 {
+      font-size: 1.5em;
+      color: #34495e;
+      margin: 10px 0;
+    }
+
+    .wishlist-item p {
+      font-size: 1.1em;
+      color: #7f8c8d;
+    }
+
+    /* Clear Wishlist Button */
+    #clear-wishlist-btn {
+      margin: 20px auto;
+      display: block;
+      padding: 12px 25px;
+      background-color: #ff4d4d;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1.2em;
+      cursor: pointer;
+      width: 200px;
+      text-align: center;
+      transition: background-color 0.3s ease;
+    }
+
+    #clear-wishlist-btn:hover {
+      background-color: #e60000;
+    }
+
+    /* Remove Button */
+    .remove-btn {
+      padding: 8px 16px;
+      background-color: #e74c3c;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 1em;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: background-color 0.3s ease;
+    }
+
+    .remove-btn:hover {
+      background-color: #c0392b;
+    }
+
+    /* Empty Wishlist Message */
+    .empty-message {
+      text-align: center;
+      font-size: 1.5em;
+      color: #95a5a6;
+      grid-column: span 3;
+    }
+
+    /* Animation Keyframes */
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+
+    @keyframes slideIn {
+      0% {
+        transform: translateY(20px);
+        opacity: 0;
+      }
+      100% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Your Wishlist</h1>
+
+  <!-- Clear Wishlist Button -->
+  <button id="clear-wishlist-btn" onclick="clearWishlist()">Clear Wishlist</button>
+
+  <!-- Wishlist Items Container -->
+  <div id="wishlist-items"></div>
+
+  <script>
+
+    // Function to clear the wishlist
+    function clearWishlist() {
+      localStorage.removeItem('wishlist');
+      window.location.reload();  
+    }
+
+    function removeFromWishlist(index) {
+      const wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+      wishlist.splice(index, 1);  
+      localStorage.setItem('wishlist', JSON.stringify(wishlist));
+      window.location.reload();  
+    }
+
+    const wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+
+    // Get the wishlist container element
+    const wishlistContainer = document.getElementById('wishlist-items');
+
+    // Check if the wishlist is empty
+    if (wishlist.length === 0) {
+      wishlistContainer.innerHTML = '<div class="empty-message">Your wishlist is empty.</div>';
+    } else {
+      // Display each product in the wishlist with animations
+      wishlist.forEach((product, index) => {
+        const listItem = document.createElement('div');
+        listItem.classList.add('wishlist-item');
+        listItem.innerHTML = `
+          <img src="${product.image}" alt="${product.name}">
+          <h3>${product.name}</h3>
+          <p>Price: $${product.price}</p>
+          <button class="remove-btn" onclick="removeFromWishlist(${index})">Remove</button>
+        `;
+        wishlistContainer.appendChild(listItem);
+      });
+    }
+  </script>
+</body>
+</html>

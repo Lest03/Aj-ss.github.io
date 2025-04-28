@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Checkout | </title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #f9f9f9, #e3f2fd);
+      padding: 40px 20px;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 36px;
+      margin-bottom: 30px;
+      color: #2c3e50;
+    }
+
+    .checkout-container {
+      max-width: 900px;
+      margin: auto;
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
+      animation: fadeIn 0.7s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .product-list {
+      margin-bottom: 20px;
+    }
+
+    .product-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 0;
+      border-bottom: 1px solid #eee;
+      gap: 16px;
+    }
+
+    .product-info {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex: 1;
+    }
+
+    .product-info img {
+      width: 60px;
+      height: 60px;
+      object-fit: cover;
+      border-radius: 12px;
+      border: 1px solid #ddd;
+    }
+
+    .product-info span {
+      font-size: 16px;
+      color: #333;
+    }
+
+    .product-item span:last-child {
+      font-size: 16px;
+      font-weight: bold;
+      color: #2c3e50;
+    }
+
+    .total {
+      font-size: 20px;
+      font-weight: bold;
+      color: #2c3e50;
+      text-align: right;
+      margin-top: 15px;
+    }
+
+    .payment-section {
+      margin-top: 30px;
+    }
+
+    .payment-methods {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+
+    .payment-methods label {
+      flex: 1;
+      padding: 15px;
+      border: 2px solid #ddd;
+      border-radius: 12px;
+      text-align: center;
+      background: #f1faff;
+      cursor: pointer;
+      font-size: 18px;
+      transition: 0.3s;
+    }
+
+    .payment-methods input[type="radio"] {
+      display: none;
+    }
+
+    .payment-methods label:hover,
+    .payment-methods input[type="radio"]:checked + span {
+      background-color: #d3eeff;
+      border-color: #38b6ff;
+    }
+
+    .payment-form {
+      display: none;
+      background: #f9f9f9;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .payment-form.active {
+      display: block;
+    }
+
+    .payment-form input {
+      width: 100%;
+      padding: 12px;
+      margin-top: 10px;
+      margin-bottom: 15px;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+    }
+
+    .payment-form button {
+      background: linear-gradient(135deg, #4facfe, #38b6ff);
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .payment-form button:hover {
+      background: linear-gradient(135deg, #30a4e8, #38a4f8);
+    }
+
+    /* Check Purchase Button */
+    .check-purchase-btn {
+      display: none;
+      background: linear-gradient(135deg, #30a4e8, #38a4f8);;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 16px;
+      margin-top: 20px;
+    }
+
+    .check-purchase-btn.active {
+      display: inline-block;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🧾 Checkout</h1>
+
+  <div class="checkout-container">
+    <div class="product-list" id="checkout-products">
+      <!-- Product items will go here -->
+    </div>
+    <p class="total" id="checkout-total">Total: $0.00</p>
+
+    <div class="payment-section">
+      <h2 style="margin-bottom: 15px;">Select Payment Method</h2>
+
+      <div class="payment-methods">
+        <label>
+          <input type="radio" name="payment" value="gcash" onchange="selectPayment(this.value)">
+          <span>💳 GCash</span>
+        </label>
+        <label>
+          <input type="radio" name="payment" value="cod" onchange="selectPayment(this.value)">
+          <span>📦 Cash on Delivery</span>
+        </label>
+      </div>
+
+      <div id="gcash-form" class="payment-form">
+        <h3>Pay with GCash</h3>
+        <input type="text" placeholder="GCash Name" id="gcash-name" required>
+        <input type="text" placeholder="Mobile Number" id="gcash-number" required>
+        <button onclick="payWithGcash()">Pay with GCash</button>
+      </div>
+
+      <div id="cod-form" class="payment-form">
+        <h3>Cash on Delivery Details</h3>
+        <input type="text" placeholder="Your Full Name" id="cod-name" required>
+        <input type="text" placeholder="Delivery Address" id="cod-address" required>
+        <input type="text" placeholder="Contact Number" id="cod-contact" required>
+        <button onclick="confirmCOD()">Confirm Order</button>
+      </div>
+    </div>
+
+    <!-- Check Purchase Button -->
+    <button id="check-purchase-btn" class="check-purchase-btn" onclick="checkPurchase()">Check Your Purchase</button>
+  </div>
+
+  <script>
+    const products = JSON.parse(localStorage.getItem('cart')) || [];
+
+    function displayCheckoutItems() {
+      const container = document.getElementById('checkout-products');
+      container.innerHTML = '';
+      let total = 0;
+
+      products.forEach(product => {
+        total += product.price * product.quantity;
+
+        const div = document.createElement('div');
+        div.className = 'product-item';
+        div.innerHTML = ` 
+          <div class="product-info">
+            <img src="${product.image}" alt="${product.name}">
+            <span>${product.name} × ${product.quantity}</span>
+          </div>
+          <span>$${(product.price * product.quantity).toFixed(2)}</span>
+        `;
+        container.appendChild(div);
+      });
+
+      document.getElementById('checkout-total').textContent = `Total: $${total.toFixed(2)}`;
+    }
+
+    function selectPayment(method) {
+      document.getElementById('gcash-form').classList.remove('active');
+      document.getElementById('cod-form').classList.remove('active');
+      document.getElementById('check-purchase-btn').classList.remove('active'); // Hide button until payment method is selected
+
+      if (method === 'gcash') {
+        document.getElementById('gcash-form').classList.add('active');
+      } else if (method === 'cod') {
+        document.getElementById('cod-form').classList.add('active');
+      }
+    }
+
+    function payWithGcash() {
+  const name = document.getElementById('gcash-name').value;
+  const number = document.getElementById('gcash-number').value;
+
+  if (name && number) {
+    alert(`You will be redirected to the GCash website for payment.\n\nName: ${name}\nNumber: ${number}`);
+    window.location.href = "https://www.gcash.com/";
+  } else {
+    alert("Please complete the GCash form.");
+  }
+}
+
+
+    function confirmCOD() {
+      const name = document.getElementById('cod-name').value;
+      const address = document.getElementById('cod-address').value;
+      const contact = document.getElementById('cod-contact').value;
+
+      if (name && address && contact) {
+        alert(`Cash on Delivery Confirmed!\n\nName: ${name}\nAddress: ${address}\nContact: ${contact}`);
+        document.getElementById('check-purchase-btn').classList.add('active'); // Show button after payment method completion
+      } else {
+        alert("Please fill out all the delivery details.");
+      }
+    }
+
+    function checkPurchase() {
+      window.location.href = "order-confirmation.html";  // Redirect to the order-confirmation page
+    }
+
+    window.onload = displayCheckoutItems;
+  </script>
+
+</body>
+</html>
